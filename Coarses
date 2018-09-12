@@ -1,0 +1,75 @@
+course("Computer Applications", cis161, summer, demand).
+course("Computer Programming 1", cis171, spring, every).
+course("Computer Programming 2", cis172, spring, every).
+course("Introduction to System Administration", cis180, spring, every).
+course("Introduction to Web Design", cis211, fall, every).
+course("Application Development 1", cis267, fall, every).
+course("Application Development 2", cis268, spring, every).
+course("Data Structures", cis273, fall, every).
+course("Advanced Web Design", cis311, spring, even).
+course("Java Programming", cis317, summer, demand).
+course("Human-Computer Interaction", cis322, spring, odd).
+course("Database Systems", cis324, spring, every).
+course("Computer Networks", cis345, spring, every).
+course("Software Engineering", cis368, fall, odd).
+course("Advanced Software Engineering", cis369, spring, demand).
+course("Algorithms", cis374, spring, every).
+course("Architecture and Assembly Language", cis386, fall, even).
+course("Mobile Application Development", cis388, fall, odd).
+course("Advanced Computer Programming", cis417, spring, even).
+course("Advanced Database Systems", cis424, spring, demand).
+course("System Administration and Security", cis441, fall, even).
+course("Parallel Programming", cis444, spring, odd).
+course("Operating Systems", cis460, spring, odd).
+course("Programming Languages", cis470, fall, odd).
+course("Artificial Intelligence", cis474, fall, even).
+course("Advanced Topics in Computer Science", cis491, spring, every).
+course("Capstone Senior Design Project", cis495, spring, every).
+
+
+prerequesite(cis172, cis171).
+prerequesite(cis267, cis171).
+prerequesite(cis268, cis267).
+prerequesite(cis268, cis171).
+prerequesite(cis273, cis171).
+prerequesite(cis311, cis211).
+prerequesite(cis317, 172).
+prerequesite(cis324, cis172).
+prerequesite(cis368, cis267).
+prerequesite(cis369, cis368).
+prerequesite(cis374, cis273).
+prerequesite(cis386, cis274).
+prerequesite(cis388, cis172).
+prerequesite(cis417, cis374).
+prerequesite(cis424, cis324).
+prerequesite(cis444, cis374).
+prerequesite(cis460, cis272).
+prerequesite(cis470, cis274).
+prerequesite(cis474, cis273).
+
+
+taken("Jonathan", cis171).
+taken("Jonathan", cis172).
+taken("Jonathan", cis267).
+taken("Jonathan", cis268).
+taken("Jonathan", cis273).
+taken("Jonathan", cis324).
+taken("Jonathan", cis368).
+taken("Jonathan", cis374).
+taken("Jonathan", cis386).
+taken("Jonathan", cis470).
+taken("Jonathan", cis474).
+
+requires(CourseId1, CourseId2) :- prerequisite(CourseId2, X), prerequesite(X, CourseId1).
+
+
+canTake(Person, CourseId) :- prerequesite(CourseId, Course2), taken(Person, Course2).
+
+
+
+
+
+
+
+
+
